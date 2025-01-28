@@ -7,4 +7,5 @@ module.exports = ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
+  url: env('APP_URL', 'https://agon-cms-strapi.onrender.com'),  // Add this line for your hosted domain
 });
