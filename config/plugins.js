@@ -15,5 +15,26 @@ module.exports = () => ({
             allowedContentTypes: ['api::sitemap.sitemap'], // Allow linking to the Sitemap collection type
         },
     },
-
+    upload: {
+        // Update your cloudinary credentials here
+        config: {
+            provider: "cloudinary",
+            providerOptions: {
+                cloud_name: "dipjj6azr",
+                api_key: "553969573594997",
+                api_secret: "IcuzLpetdqW0qooidsaf6Z2T-k8",
+            },
+            actionOptions: {
+                upload: {
+                    folder: "strapi-uploads",
+                    use_filename: true,
+                    unique_filename: false,
+                    resource_type: "auto",
+                },
+                delete: {
+                    invalidate: true,
+                },
+            },
+        },
+    },
 });
