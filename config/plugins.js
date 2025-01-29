@@ -15,12 +15,6 @@ module.exports = () => ({
             allowedContentTypes: ['api::sitemap.sitemap'], // Allow linking to the Sitemap collection type
         },
     },
-    // upload: {
-    //     provider: 'local',  // Make sure this is set to 'local' if not using a cloud provider
-    //     providerOptions: {
-    //         sizeLimit: 10000000, // Optional size limit for uploads
-    //     },
-    // },
     upload: {
         // Update your cloudinary credentials here
         config: {
@@ -43,4 +37,10 @@ module.exports = () => ({
             },
         },
     },
+    // CORS settings
+    'strapi::cors': {
+        enabled: true,
+        origin: ['http://localhost:3000', 'https://agon-cms-strapi.onrender.com'],
+    },
+
 });
