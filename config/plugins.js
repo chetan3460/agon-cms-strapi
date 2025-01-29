@@ -37,18 +37,5 @@ module.exports = () => ({
             },
         },
     },
-    // CORS settings
-    // Enable the CORS plugin globally
-    'strapi-cors': {
-        enabled: true,
-        // Allow access from these domains
-        origin: [
-            'http://localhost:3000', // Your local development URL
-            'https://agon-cms-strapi.onrender.com', // Your production URL
-        ],
-        // Additional configuration options (optional)
-        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-        headers: '*',
-    },
 
 });
