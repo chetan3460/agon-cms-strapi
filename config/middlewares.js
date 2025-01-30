@@ -1,54 +1,33 @@
-// module.exports = [
-//   'strapi::logger',
-//   'strapi::errors',
-//   'strapi::security',
-//   'strapi::cors',
-//   'strapi::poweredBy',
-//   'strapi::query',
-//   'strapi::body',
-//   'strapi::session',
-//   'strapi::favicon',
-//   'strapi::public',
-// ];
-// config/middlewares.js
 module.exports = [
-  {
-    name: 'strapi::logger',
-  },
-  {
-    name: 'strapi::errors',
-  },
+  'strapi::logger',
+  'strapi::errors',
   {
     name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        directives: {
+          'connect-src': ["'self'", 'agon-nuxt.vercel.app'],
+          'img-src': ["'self'", 'data:', 'blob:', 'agon-cms-strapi.onrender.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'agon-cms-strapi.onrender.com'],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
   },
   {
     name: 'strapi::cors',
     config: {
       enabled: true,
-      origin: [
-        'http://localhost:3000', // Local development URL
-        'https://agon-cms-strapi.onrender.com', // Your production URL
-      ],
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-      headers: '*',
+      origin: ['https://agon-nuxt.vercel.app'], // Allow frontend
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+      credentials: true,
     },
   },
-  {
-    name: 'strapi::poweredBy',
-  },
-  {
-    name: 'strapi::query',
-  },
-  {
-    name: 'strapi::body',
-  },
-  {
-    name: 'strapi::session',
-  },
-  {
-    name: 'strapi::favicon',
-  },
-  {
-    name: 'strapi::public',
-  },
+  'strapi::poweredBy',
+  'strapi::query',
+  'strapi::body',
+  'strapi::session',
+  'strapi::favicon',
+  'strapi::public',
 ];
