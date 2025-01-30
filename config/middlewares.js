@@ -6,9 +6,9 @@ module.exports = [
     config: {
       contentSecurityPolicy: {
         directives: {
-          'connect-src': ["'self'", 'https://agon-nuxt.vercel.app'],
-          'img-src': ["'self'", 'data:', 'blob:', 'https://agon-cms-strapi.onrender.com'],
-          'media-src': ["'self'", 'data:', 'blob:', 'https://agon-cms-strapi.onrender.com'],
+          'connect-src': ["'self'", 'https://agon-nuxt.vercel.app', 'https://agon-nuxt.onrender.com'],
+          'img-src': ["'self'", 'data:', 'blob:', 'https://agon-cms-strapi.onrender.com', 'https://agon-nuxt.onrender.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'https://agon-cms-strapi.onrender.com', 'https://agon-nuxt.onrender.com'],
           upgradeInsecureRequests: null,
         },
       },
