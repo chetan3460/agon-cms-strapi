@@ -517,6 +517,50 @@ export interface ApiCardsBlockCardsBlock extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCareerCareer extends Struct.SingleTypeSchema {
+  collectionName: 'careers';
+  info: {
+    displayName: 'Career';
+    pluralName: 'careers';
+    singularName: 'career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Blocks: Schema.Attribute.DynamicZone<
+      [
+        'page-blocks.two-col-image-content-block',
+        'page-blocks.service-page-banner-block',
+        'page-blocks.process-block',
+        'page-blocks.partner-block',
+        'page-blocks.hero-about-block',
+        'page-blocks.faq-block',
+        'page-blocks.content-image-block',
+        'page-blocks.contact-us',
+        'page-blocks.cards-block',
+        'page-blocks.card-block-layout-two',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career.career'
+    > &
+      Schema.Attribute.Private;
+    PageSlug: Schema.Attribute.UID<'PageTitle'>;
+    PageTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactUsFormContactUsForm
   extends Struct.CollectionTypeSchema {
   collectionName: 'contact_us_forms';
@@ -727,6 +771,51 @@ export interface ApiLatestPostLatestPost extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPagesListPagesList extends Struct.SingleTypeSchema {
+  collectionName: 'pages_lists';
+  info: {
+    description: '';
+    displayName: 'PagesLists';
+    pluralName: 'pages-lists';
+    singularName: 'pages-list';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Blocks: Schema.Attribute.DynamicZone<
+      [
+        'page-blocks.two-col-image-content-block',
+        'page-blocks.service-page-banner-block',
+        'page-blocks.process-block',
+        'page-blocks.partner-block',
+        'page-blocks.hero-about-block',
+        'page-blocks.faq-block',
+        'page-blocks.content-image-block',
+        'page-blocks.contact-us',
+        'page-blocks.cards-block',
+        'page-blocks.card-block-layout-two',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pages-list.pages-list'
+    > &
+      Schema.Attribute.Private;
+    PageSlug: Schema.Attribute.UID;
+    PageTitle: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPartnerLogoPartnerLogo extends Struct.SingleTypeSchema {
   collectionName: 'partner_logos';
   info: {
@@ -753,6 +842,47 @@ export interface ApiPartnerLogoPartnerLogo extends Struct.SingleTypeSchema {
       true
     > &
       Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductPageProductPage extends Struct.SingleTypeSchema {
+  collectionName: 'product_pages';
+  info: {
+    displayName: 'Product Page';
+    pluralName: 'product-pages';
+    singularName: 'product-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Blocks: Schema.Attribute.DynamicZone<
+      [
+        'page-blocks.two-col-image-content-block',
+        'page-blocks.service-page-banner-block',
+        'page-blocks.process-block',
+        'page-blocks.partner-block',
+        'page-blocks.hero-about-block',
+        'page-blocks.faq-block',
+        'page-blocks.content-image-block',
+        'page-blocks.contact-us',
+        'page-blocks.cards-block',
+        'page-blocks.card-block-layout-two',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-page.product-page'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1606,13 +1736,16 @@ declare module '@strapi/strapi' {
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
       'api::blog.blog': ApiBlogBlog;
       'api::cards-block.cards-block': ApiCardsBlockCardsBlock;
+      'api::career.career': ApiCareerCareer;
       'api::contact-us-form.contact-us-form': ApiContactUsFormContactUsForm;
       'api::content-image-section.content-image-section': ApiContentImageSectionContentImageSection;
       'api::email-template.email-template': ApiEmailTemplateEmailTemplate;
       'api::feature-block.feature-block': ApiFeatureBlockFeatureBlock;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::latest-post.latest-post': ApiLatestPostLatestPost;
+      'api::pages-list.pages-list': ApiPagesListPagesList;
       'api::partner-logo.partner-logo': ApiPartnerLogoPartnerLogo;
+      'api::product-page.product-page': ApiProductPageProductPage;
       'api::see-why-block.see-why-block': ApiSeeWhyBlockSeeWhyBlock;
       'api::sitemap.sitemap': ApiSitemapSitemap;
       'api::testimonial-block.testimonial-block': ApiTestimonialBlockTestimonialBlock;

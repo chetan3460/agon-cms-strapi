@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "careers",
+  "info": {
+    "singularName": "career",
+    "pluralName": "careers",
+    "displayName": "Career"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PageTitle": {
+      "type": "string"
+    },
+    "PageSlug": {
+      "type": "uid",
+      "targetField": "PageTitle"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    },
+    "Blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "page-blocks.two-col-image-content-block",
+        "page-blocks.service-page-banner-block",
+        "page-blocks.process-block",
+        "page-blocks.partner-block",
+        "page-blocks.hero-about-block",
+        "page-blocks.faq-block",
+        "page-blocks.content-image-block",
+        "page-blocks.contact-us",
+        "page-blocks.cards-block",
+        "page-blocks.card-block-layout-two"
+      ]
+    }
+  }
+}

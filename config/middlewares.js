@@ -17,7 +17,7 @@ module.exports = [
   {
     name: 'strapi::cors', // ✅ Remove `enabled: true`
     config: {
-      origin: ['https://agon-nuxt.vercel.app', 'https://agon-nuxt.onrender.com'], // ✅ Add your frontend URL
+      origin: ['http://localhost:3000', 'https://agon-nuxt.vercel.app', 'https://agon-nuxt.onrender.com'], // ✅ Add your frontend URL
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       credentials: true,

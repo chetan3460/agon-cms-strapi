@@ -85,7 +85,8 @@ export interface PageBlocksCardsBlock extends Struct.ComponentSchema {
 export interface PageBlocksContactUs extends Struct.ComponentSchema {
   collectionName: 'components_page_blocks_contact_uses';
   info: {
-    displayName: 'Contact Us';
+    description: '';
+    displayName: 'Contact Us Block';
     icon: 'apps';
   };
   attributes: {

@@ -1,8 +1,9 @@
 {
   "collectionName": "components_page_blocks_contact_uses",
   "info": {
-    "displayName": "Contact Us",
-    "icon": "apps"
+    "displayName": "Contact Us Block",
+    "icon": "apps",
+    "description": ""
   },
   "options": {},
   "attributes": {
